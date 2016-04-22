@@ -11,7 +11,7 @@ module ActsAsTaggableOn
     ### VALIDATIONS:
 
     validates_presence_of :name
-    validates_uniqueness_of :name, if: :validates_name_uniqueness?
+    validates_uniqueness_of :name, if: :validates_name_uniqueness?, scope: :company_id
     validates_length_of :name, maximum: 255
 
     # monkey patch this method if don't need name uniqueness validation
